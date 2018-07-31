@@ -102,7 +102,6 @@ CMD ["--wait"]
 
 WORKDIR /iotest
 ADD jobs/* /iotest/jobs/
-#ADD fio-rand-RW.fio /iotest/
 VOLUME /iotest/work
 #CMD fio iometer-file-access-server.fio
 #CMD ["/bin/bash"]

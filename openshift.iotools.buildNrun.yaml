@@ -60,6 +60,9 @@ objects:
     name: ${APPLICATION_NAME}
   spec:
     completionDeadlineSeconds: 3600
+    env:
+      - name: "BUILD_LOGLEVEL"
+        value: 2
     output:
       to:
         kind: ImageStreamTag
@@ -106,6 +109,8 @@ objects:
         - name: ${APPLICATION_NAME}
           image: ${APPLICATION_NAME}
           imagePullPolicy: Always
+          securityContext:
+            runAsUser: 0
           ports:
           - containerPort: 5901
             name: vnc

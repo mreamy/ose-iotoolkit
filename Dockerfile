@@ -15,20 +15,6 @@ RUN yum install -y \
   zlib-devel \
   python-devel
 RUN yum install -y  python-pip 
-#RUN yum install -y epel-release
-#RUN yum install -y python-pip
-#RUN yum install -y make
-#RUN yum install -y mlocate
-#RUN yum install -y which
-#RUN yum install -y gnuplot
-#RUN yum install -y gcc
-#RUN yum install -y gcc-c++
-#RUN yum install -y git
-#RUN yum install -y libaio-devel
-#RUN yum install -y libaio
-#RUN yum install -y zlib
-#RUN yum install -y zlib-devel
-#RUN yum install -y python-devel
 
 RUN mkdir -p /iotest/work && chmod 777 /iotest/work && mkdir -p /iotest/jobs && chmod 777 /iotest/jobs
 RUN pip install -U six
@@ -42,28 +28,26 @@ RUN ./configure && make && make install
 #RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
 #WORKDIR /tmp/build/pyqtgraph
 #RUN python setup.py install
+RUN pip install -U pyqtgraph
 
 
 #WORKDIR /tmp/build
 #RUN git clone https://github.com/cython/cython.git
 #WORKDIR /tmp/build/cython
 #RUN python setup.py install
+RUN pip install -U cython
 
 #WORKDIR /tmp/build
 #RUN git clone https://github.com/numpy/numpy.git
 #WORKDIR /tmp/build/numpy
 #RUN python setup.py build
 #RUN python setup.py install
+RUN pip install -U numpy
 
-##WORKDIR /tmp/build
-##RUN git clone https://github.com/axboe/fio.git
-##WORKDIR /tmp/build/fio
-##RUN ./configure && make && make install
-
-#WORKDIR /tmp/build
-#RUN git clone https://github.com/01org/fiovisualizer
-#WORKDIR /tmp/build/fiovisualizer
-#RUN python setup.py install
+WORKDIR /tmp/build
+RUN git clone https://github.com/01org/fiovisualizer
+WORKDIR /tmp/build/fiovisualizer
+RUN python setup.py install
 
 ## Connection ports for controlling the UI:
 # VNC port:5901

@@ -29,25 +29,25 @@ RUN ./configure && make && make install
 #WORKDIR /tmp/build/numpy
 #RUN python setup.py build
 #RUN python setup.py install
-RUN pip install -U numpy
+#RUN pip install -U numpy
 
 #WORKDIR /tmp/build
 #RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
 #WORKDIR /tmp/build/pyqtgraph
 #RUN python setup.py install
-RUN pip install -U pyqtgraph
+#RUN pip install -U pyqtgraph
 
 
 #WORKDIR /tmp/build
 #RUN git clone https://github.com/cython/cython.git
 #WORKDIR /tmp/build/cython
 #RUN python setup.py install
-RUN pip install -U cython
+#RUN pip install -U cython
 
-WORKDIR /tmp/build
-RUN git clone https://github.com/01org/fiovisualizer
-WORKDIR /tmp/build/fiovisualizer
-RUN python setup.py install
+#WORKDIR /tmp/build
+#RUN git clone https://github.com/01org/fiovisualizer
+#WORKDIR /tmp/build/fiovisualizer
+#RUN python setup.py install
 
 ## Connection ports for controlling the UI:
 # VNC port:5901

@@ -24,11 +24,11 @@ RUN git clone https://github.com/axboe/fio.git
 WORKDIR /tmp/build/fio
 RUN ./configure && make && make install
 
-#WORKDIR /tmp/build
-#RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
-#WORKDIR /tmp/build/pyqtgraph
-#RUN python setup.py install
-RUN pip install -U pyqtgraph
+WORKDIR /tmp/build
+RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
+WORKDIR /tmp/build/pyqtgraph
+RUN python setup.py install
+#RUN pip install -U pyqtgraph
 
 
 #WORKDIR /tmp/build

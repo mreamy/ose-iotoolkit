@@ -13,6 +13,7 @@ RUN yum install -y libaio-devel
 RUN yum install -y libaio
 RUN yum install -y zlib
 RUN yum install -y zlib-devel
+RUN yum install -y python-devel
 
 RUN mkdir -p /iotest/work && chmod 777 /iotest/work && mkdir -p /iotest/jobs && chmod 777 /iotest/jobs
 RUN pip install -U six
@@ -31,7 +32,7 @@ RUN python setup.py install
 WORKDIR /tmp/build
 RUN git clone https://github.com/cython/cython.git
 WORKDIR /tmp/build/cython
-#RUN python setup.py install
+RUN python setup.py install
 
 WORKDIR /tmp/build
 RUN git clone https://github.com/numpy/numpy.git

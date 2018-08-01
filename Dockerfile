@@ -31,7 +31,7 @@ RUN python setup.py install
 WORKDIR /tmp/build
 RUN git clone https://github.com/cython/cython.git
 WORKDIR /tmp/build/cython
-RUN python setup.py install
+#RUN python setup.py install
 
 WORKDIR /tmp/build
 RUN git clone https://github.com/numpy/numpy.git
@@ -65,7 +65,7 @@ ENV HOME=/headless \
     NO_VNC_HOME=/headless/noVNC \
     VNC_COL_DEPTH=24 \
     VNC_RESOLUTION=1920x1080 \
-    VNC_PW=vncpassword \
+    VNC_PW=vnc \
     VNC_VIEW_ONLY=false
 WORKDIR $HOME
 

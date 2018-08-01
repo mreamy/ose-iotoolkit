@@ -2,7 +2,6 @@ FROM centos
 RUN yum -y update 
 RUN yum install -y \
   epel-release \
-  python-pip \
   make \
   mlocate \
   which \
@@ -15,6 +14,7 @@ RUN yum install -y \
   zlib \
   zlib-devel \
   python-devel
+RUN yum install -y  python-pip 
 #RUN yum install -y epel-release
 #RUN yum install -y python-pip
 #RUN yum install -y make

@@ -59,6 +59,7 @@ objects:
       application: ${APPLICATION_NAME}
     name: ${APPLICATION_NAME}
   spec:
+    completionDeadlineSeconds: 3600
     output:
       to:
         kind: ImageStreamTag

@@ -1,19 +1,34 @@
 FROM centos
 RUN yum -y update 
-RUN yum install -y epel-release
-RUN yum install -y python-pip
-RUN yum install -y make
-RUN yum install -y mlocate
-RUN yum install -y which
-RUN yum install -y gnuplot
-RUN yum install -y gcc
-RUN yum install -y gcc-c++
-RUN yum install -y git
-RUN yum install -y libaio-devel
-RUN yum install -y libaio
-RUN yum install -y zlib
-RUN yum install -y zlib-devel
-RUN yum install -y python-devel
+RUN yum install -y \
+  epel-release \
+  python-pip \
+  make \
+  mlocate \
+  which \
+  gnuplot \
+  gcc \
+  gcc-c++ \
+  git \
+  libaio-devel \
+  libaio \
+  zlib \
+  zlib-devel \
+  python-devel
+#RUN yum install -y epel-release
+#RUN yum install -y python-pip
+#RUN yum install -y make
+#RUN yum install -y mlocate
+#RUN yum install -y which
+#RUN yum install -y gnuplot
+#RUN yum install -y gcc
+#RUN yum install -y gcc-c++
+#RUN yum install -y git
+#RUN yum install -y libaio-devel
+#RUN yum install -y libaio
+#RUN yum install -y zlib
+#RUN yum install -y zlib-devel
+#RUN yum install -y python-devel
 
 RUN mkdir -p /iotest/work && chmod 777 /iotest/work && mkdir -p /iotest/jobs && chmod 777 /iotest/jobs
 RUN pip install -U six

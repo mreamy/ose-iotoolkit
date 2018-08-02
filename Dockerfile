@@ -25,13 +25,6 @@ WORKDIR /tmp/build/fio
 RUN ./configure && make && make install
 
 #WORKDIR /tmp/build
-#RUN git clone https://github.com/numpy/numpy.git
-#WORKDIR /tmp/build/numpy
-#RUN python setup.py build
-#RUN python setup.py install
-RUN pip install -U numpy
-
-#WORKDIR /tmp/build
 #RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
 #WORKDIR /tmp/build/pyqtgraph
 #RUN python setup.py build
@@ -45,6 +38,14 @@ RUN pip install -U numpy
 #WORKDIR /tmp/build/cython
 #RUN python setup.py install
 RUN pip install -U cython
+
+#WORKDIR /tmp/build
+#RUN git clone https://github.com/numpy/numpy.git
+#WORKDIR /tmp/build/numpy
+#RUN python setup.py build
+#RUN python setup.py install
+
+RUN pip install -U numpy
 
 RUN pip install -U QtGui
 

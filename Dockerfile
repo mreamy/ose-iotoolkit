@@ -29,14 +29,14 @@ RUN ./configure && make && make install
 #WORKDIR /tmp/build/numpy
 #RUN python setup.py build
 #RUN python setup.py install
-#RUN pip install -U numpy
+RUN pip install -U numpy
 
 #WORKDIR /tmp/build
 #RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
 #WORKDIR /tmp/build/pyqtgraph
 #RUN python setup.py build
 #RUN python setup.py install
-##RUN pip install -U pyqtgraph
+#RUN pip install -U pyqtgraph
 #RUN yum install -y python2-pyqtgraph
 
 
@@ -44,14 +44,22 @@ RUN ./configure && make && make install
 #RUN git clone https://github.com/cython/cython.git
 #WORKDIR /tmp/build/cython
 #RUN python setup.py install
-#RUN pip install -U cython
+RUN pip install -U cython
 
-#RUN pip install -U QtGui
+RUN pip install -U QtGui
 
-#RUN yum install -y python-qt4
+RUN yum install -y python-qt4
+
+WORKDIR /tmp/build
+RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
+WORKDIR /tmp/build/pyqtgraph
+RUN python setup.py build
+RUN python setup.py install
+
+
 
 #WORKDIR /tmp/build
-#RUN git clone https://github.com/01org/fiovisualizer
+RUN git clone https://github.com/01org/fiovisualizer
 #WORKDIR /tmp/build/fiovisualizer
 #RUN python setup.py install
 

@@ -1,0 +1,18 @@
+[Desktop Entry]
+Version=1.0
+Name=FIO Visualizer
+Exec=/fio_visualizer/fiovisualizer/fio_visualizer.py
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Icon=/usr/share/icons/gnome/48x48/devices/drive-multidisk.png
+StartupNotify=true
+Actions=NewWindow;NewPrivateWindow;
+
+Comment=
+Path=/iotest
+
+[Desktop Action NewWindow]
+Name=Open a New Window
+Exec=/fio_visualizer/fiovisualizer/fio_visualizer.py
+OnlyShowIn=Unity;

@@ -45,7 +45,7 @@ RUN pip install -U cython
 #RUN python setup.py build
 #RUN python setup.py install
 
-RUN pip install -U numpy
+#RUN pip install -U numpy
 
 RUN pip install -U QtGui
 

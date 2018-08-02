@@ -11,8 +11,7 @@ RUN yum install -y \
   git \
   libaio-devel \
   libaio \
-#  zlib \
-#  zlib-devel \
+  eog \
   python-devel
 RUN yum install -y  python-pip 
 
@@ -64,6 +63,7 @@ RUN python setup.py install
 #WORKDIR /tmp/build/fiovisualizer
 #RUN python setup.py install
 RUN mkdir -p /fio_visualizer && chmod 777 /fio_visualizer
+WORKDIR /fio_visualizer
 RUN git clone https://github.com/01org/fiovisualizer
 
 ## Connection ports for controlling the UI:
@@ -86,6 +86,9 @@ ENV HOME=/headless \
     VNC_VIEW_ONLY=false
 WORKDIR $HOME
 
+# Add fio_visualizer desktop icon
+ADD ./fio_visualizer.desktop /headless/Desktop/
+
 ### Add all install scripts for further steps
 ADD ./src/common/install/ $INST_SCRIPTS/
 ADD ./src/centos/install/ $INST_SCRIPTS/
@@ -99,9 +102,8 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN $INST_SCRIPTS/tigervnc.sh
 RUN $INST_SCRIPTS/no_vnc.sh
 
-### Install firefox and chrome browser
+### Install firefox
 RUN $INST_SCRIPTS/firefox.sh
-# RUN $INST_SCRIPTS/chrome.sh
 
 ### Install xfce UI
 RUN $INST_SCRIPTS/xfce_ui.sh

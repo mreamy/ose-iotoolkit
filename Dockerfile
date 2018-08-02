@@ -1,5 +1,4 @@
 FROM centos
-RUN yum install -y eog
 RUN yum -y update 
 RUN yum install -y \
   epel-release \

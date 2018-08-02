@@ -23,28 +23,7 @@ RUN git clone https://github.com/axboe/fio.git
 WORKDIR /tmp/build/fio
 RUN ./configure && make && make install
 
-#WORKDIR /tmp/build
-#RUN git clone https://github.com/pyqtgraph/pyqtgraph.git
-#WORKDIR /tmp/build/pyqtgraph
-#RUN python setup.py build
-#RUN python setup.py install
-#RUN pip install -U pyqtgraph
-#RUN yum install -y python2-pyqtgraph
-
-
-#WORKDIR /tmp/build
-#RUN git clone https://github.com/cython/cython.git
-#WORKDIR /tmp/build/cython
-#RUN python setup.py install
 RUN pip install -U cython
-
-#WORKDIR /tmp/build
-#RUN git clone https://github.com/numpy/numpy.git
-#WORKDIR /tmp/build/numpy
-#RUN python setup.py build
-#RUN python setup.py install
-
-#RUN pip install -U numpy
 
 RUN pip install -U QtGui
 
@@ -58,17 +37,13 @@ RUN python setup.py install
 
 
 
-#WORKDIR /tmp/build
-#RUN git clone https://github.com/01org/fiovisualizer
-#WORKDIR /tmp/build/fiovisualizer
-#RUN python setup.py install
 RUN mkdir -p /fio_visualizer && chmod 777 /fio_visualizer
 WORKDIR /fio_visualizer
 RUN git clone https://github.com/01org/fiovisualizer
 
 ## Connection ports for controlling the UI:
 # VNC port:5901
-# noVNC webport, connect via http://IP:6901/?password=vncpassword
+# noVNC webport, connect via http://IP:6901/?password=vnc
 ENV DISPLAY=:1 \
     VNC_PORT=5901 \
     NO_VNC_PORT=6901
@@ -113,7 +88,6 @@ ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
 USER 0
-#USER 1000
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
@@ -121,5 +95,3 @@ CMD ["--wait"]
 WORKDIR /iotest
 ADD jobs/* /iotest/jobs/
 VOLUME /iotest/work
-#CMD fio iometer-file-access-server.fio
-#CMD ["/bin/bash"]

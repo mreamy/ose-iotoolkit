@@ -86,8 +86,6 @@ ENV HOME=/headless \
     VNC_VIEW_ONLY=false
 WORKDIR $HOME
 
-# Add fio_visualizer desktop icon
-ADD ./fiovisualizer.desktop /headless/Desktop/
 
 ### Add all install scripts for further steps
 ADD ./src/common/install/ $INST_SCRIPTS/

@@ -60,9 +60,11 @@ RUN python setup.py install
 
 
 #WORKDIR /tmp/build
-RUN git clone https://github.com/01org/fiovisualizer
+#RUN git clone https://github.com/01org/fiovisualizer
 #WORKDIR /tmp/build/fiovisualizer
 #RUN python setup.py install
+RUN mkdir -p /fio_visualizer && chmod 777 /fio_visualizer
+RUN git clone https://github.com/01org/fiovisualizer
 
 ## Connection ports for controlling the UI:
 # VNC port:5901

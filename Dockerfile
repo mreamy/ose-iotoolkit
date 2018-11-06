@@ -95,3 +95,4 @@ CMD ["--wait"]
 WORKDIR /iotest
 ADD jobs/* /iotest/jobs/
 VOLUME /iotest/work
+RUN ln -s /fio_visualizer/fiovisualizer/Workloads/ /iotest/

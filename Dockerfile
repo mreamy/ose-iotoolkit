@@ -1,4 +1,4 @@
-FROM centos
+FROM centos:7
 RUN yum -y update 
 RUN yum install -y \
   epel-release \
@@ -87,7 +87,8 @@ RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
-USER 0
+#USER 0
+USER 1000780000
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]

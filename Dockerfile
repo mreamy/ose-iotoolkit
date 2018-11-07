@@ -87,13 +87,11 @@ RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
-#USER 0
-USER 1000780000
+WORKDIR /iotest
+ADD jobs/* /iotest/jobs/
+
+USER 0
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]
 
-WORKDIR /iotest
-ADD jobs/* /iotest/jobs/
-VOLUME /iotest/work
-RUN ln -s /fio_visualizer/fiovisualizer/Workloads/ /iotest/

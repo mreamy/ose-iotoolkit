@@ -109,8 +109,8 @@ objects:
         - name: ${APPLICATION_NAME}
           image: ${APPLICATION_NAME}
           imagePullPolicy: Always
-          securityContext:
-            runAsUser: 0
+#          securityContext:
+#            runAsUser: 0
           ports:
           - containerPort: 5901
             name: vnc

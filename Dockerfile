@@ -90,7 +90,7 @@ RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 WORKDIR /iotest
 ADD jobs/* /iotest/jobs/
 
-USER 0
+#USER 0
 
 ENTRYPOINT ["/dockerstartup/vnc_startup.sh"]
 CMD ["--wait"]

@@ -15,7 +15,10 @@ RUN yum install -y \
   python-devel
 RUN yum install -y  python-pip 
 
-RUN mkdir -p /iotest/work && chmod 777 /iotest/work && mkdir -p /iotest/jobs && chmod 777 /iotest/jobs && mkdir -p /iotest/fio && chmod 777 /iotest/fio
+#RUN mkdir -p /iotest/work && chmod 777 /iotest/work && mkdir -p /iotest/jobs && chmod 777 /iotest/jobs && mkdir -p /iotest/fio && chmod 777 /iotest/fio
+#WORKDIR /iotest
+ADD iotest.tar /
+
 RUN pip install -U six
 
 WORKDIR /tmp/build
@@ -87,9 +90,9 @@ RUN $INST_SCRIPTS/libnss_wrapper.sh
 ADD ./src/common/scripts $STARTUPDIR
 RUN $INST_SCRIPTS/set_user_permission.sh $STARTUPDIR $HOME
 
-WORKDIR /iotest
-ADD jobs/* /iotest/jobs/ 
-ADD fio/* /iotest/fio/
+#WORKDIR /iotest
+#ADD jobs/* /iotest/jobs/ 
+#ADD fio/* /iotest/fio/
 
 #USER 0
 

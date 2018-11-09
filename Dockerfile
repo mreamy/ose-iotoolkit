@@ -16,8 +16,10 @@ RUN yum install -y \
 RUN yum install -y  python-pip 
 
 #RUN mkdir -p /iotest/work && chmod 777 /iotest/work && mkdir -p /iotest/jobs && chmod 777 /iotest/jobs && mkdir -p /iotest/fio && chmod 777 /iotest/fio
-#WORKDIR /iotest
+WORKDIR /iotest
 ADD iotest.tar /
+RUN chmod -R 777 /iotest
+#RUN mkdir /nfs1/job_output && chmod 777 /nfs1/job_output
 
 RUN pip install -U six
 
